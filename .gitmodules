@@ -1,0 +1,3 @@
+[submodule "external/dreamer4"]
+	path = external/dreamer4
+	url = https://github.com/nicklashansen/dreamer4.git
