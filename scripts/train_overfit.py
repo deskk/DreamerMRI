@@ -1,6 +1,7 @@
 import os
 import sys
 import ruamel.yaml as yaml
+import wandb
 
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, root_dir)
@@ -16,6 +17,7 @@ from scripts.real_medical_env import RealMedicalEnv, DreamerV3Wrapper
 
 def make_env(config, index=0):
     dataset_dir = "/local/scratch/scratch-hd/desmond/duke_micro_subset/preprocessed"
+    # Deterministically locks the batch architecture over a solitary matrix
     env = RealMedicalEnv(data_dir=dataset_dir, debug_patient_id="Breast_MRI_001")
     env = DreamerV3Wrapper(env)
     
@@ -39,6 +41,9 @@ def main():
     print("--- Memory Overfit (N=1) Interaction Test ---")
     devices = jax.devices()
     print(f"[JAX DEBUG] Detected devices: {devices}")
+    
+    # Enable comprehensive intrinsic world model video synchronizations mapped into Weight and Biases
+    wandb.init(project="Medical-Dreamer", name="N1-Overfit-Check-A6000", sync_tensorboard=True)
 
     folder = elements.Path(os.path.join(root_dir, 'external', 'dreamerv3', 'dreamerv3'))
     configs_yaml = folder / 'configs.yaml'
@@ -52,6 +57,8 @@ def main():
         'run.train_ratio': 64,         
         'batch_size': 16,
         'batch_length': 16,
+        # Native telemetry routing
+        'logger.outputs': ['terminal', 'tensorboard', 'jsonl', 'wandb']
     })
 
     logdir = elements.Path(os.path.expanduser('~/logdir/overfit_medical'))
@@ -77,6 +84,7 @@ def main():
         def make_agent(config):
             env = make_env(config, 0)
             obs_space = env.obs_space
+            # Explicit embodied API translation dropping internal states
             act_space = {k: v for k, v in env.act_space.items() if k != 'reset'}
             env.close()
             return Agent(obs_space, act_space, elements.Config(
