@@ -1,0 +1,15 @@
+2026-04-09 23:48:46,347 INFO    MainThread:1791320 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-04-09 23:48:46,348 INFO    MainThread:1791320 [wandb_setup.py:_flush():81] Configure stats pid to 1791320
+2026-04-09 23:48:46,348 INFO    MainThread:1791320 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-09 23:48:46,348 INFO    MainThread:1791320 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /local/scratch/scratch-hd/desmond/aai-project/wandb/run-20260409_234846-gp20sfpc/logs/debug.log
+2026-04-09 23:48:46,348 INFO    MainThread:1791320 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /local/scratch/scratch-hd/desmond/aai-project/wandb/run-20260409_234846-gp20sfpc/logs/debug-internal.log
+2026-04-09 23:48:46,349 ERROR   MainThread:1791320 [util.py:get_module():232] Error importing optional module tensorboard
+Traceback (most recent call last):
+  File "/local/scratch/scratch-hd/desmond/miniconda3/envs/dreamer_mri/lib/python3.10/site-packages/wandb/util.py", line 225, in get_module
+    return import_module(name)
+  File "/local/scratch/scratch-hd/desmond/miniconda3/envs/dreamer_mri/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tensorboard'

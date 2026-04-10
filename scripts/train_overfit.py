@@ -23,7 +23,8 @@ def make_env(config, index=0):
     
     import numpy as np
     env.obs_space = {
-        'image': elements.Space(np.uint8, (64, 64, 64)),
+        'obs_3d': elements.Space(np.uint8, (64, 64, 64)),
+        'image': elements.Space(np.uint8, (64, 64, 3)),
         'reward': elements.Space(np.float32),
         'is_first': elements.Space(bool),
         'is_last': elements.Space(bool),
@@ -87,7 +88,7 @@ def main():
             # Explicit embodied API translation dropping internal states
             act_space = {k: v for k, v in env.act_space.items() if k != 'reset'}
             env.close()
-            return Agent(obs_space, act_space, elements.Config(
+            agent = Agent(obs_space, act_space, elements.Config(
                 **config.agent,
                 logdir=config.logdir,
                 seed=config.seed,
@@ -99,6 +100,10 @@ def main():
                 replica=0,
                 replicas=1,
             ))
+            # HACK: Preserve submodule integrity by strictly duck-typing instance parameters 
+            # to hide the C=64 matrix from the intrinsic W&B video generation loop.
+            agent.dec.imgkeys = [k for k in agent.dec.imgkeys if k != 'obs_3d']
+            return agent
 
         embodied.run.train(
             bind(make_agent, config),

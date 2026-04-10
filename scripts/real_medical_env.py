@@ -114,7 +114,8 @@ class DreamerV3Wrapper:
     def __init__(self, env):
         self._env = env
         self.obs_space = {
-            'image': elements.Space(np.uint8, (64, 64, 64)),
+            'obs_3d': elements.Space(np.uint8, (64, 64, 64)),
+            'image': elements.Space(np.uint8, (64, 64, 3)),
             'reward': elements.Space(np.float32),
             'is_first': elements.Space(bool),
             'is_last': elements.Space(bool),
@@ -129,8 +130,13 @@ class DreamerV3Wrapper:
         return getattr(self._env, name)
 
     def _process_obs(self, obs, reward=0.0, is_first=False, is_terminal=False, is_last=False):
+        # Native RGB Center-Slice interception strictly avoiding tensor mismatch for W&B visuals
+        center_slice = obs[:, :, obs.shape[2]//2]
+        rgb_image = np.stack([center_slice, center_slice, center_slice], axis=-1)
+        
         return {
-            'image': obs,
+            'obs_3d': obs,
+            'image': rgb_image,
             'reward': np.array(reward, dtype=np.float32),
             'is_first': np.array(is_first, dtype=bool),
             'is_terminal': np.array(is_terminal, dtype=bool),

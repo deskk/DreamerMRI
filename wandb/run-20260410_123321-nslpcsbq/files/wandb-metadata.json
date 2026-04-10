@@ -1,0 +1,40 @@
+{
+  "os": "Linux-6.8.0-107-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.10.20",
+  "startedAt": "2026-04-10T18:33:21.185969Z",
+  "program": "/local/scratch/scratch-hd/desmond/aai-project/scripts/train_overfit.py",
+  "codePath": "scripts/train_overfit.py",
+  "codePathLocal": "scripts/train_overfit.py",
+  "git": {
+    "remote": "https://github.com/deskk/DreamerMRI.git",
+    "commit": "74452766f4b3b264e7e6806b2778acb466b3990f"
+  },
+  "email": "u1588823@gcloud.utah.edu",
+  "root": "/local/scratch/scratch-hd/desmond/aai-project",
+  "host": "desmond",
+  "executable": "/local/scratch/scratch-hd/desmond/miniconda3/envs/dreamer_mri/bin/python",
+  "cpu_count": 8,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "157396975616",
+      "used": "73633107968"
+    }
+  },
+  "memory": {
+    "total": "66515582976"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA RTX A6000",
+      "memoryTotal": "51527024640",
+      "cudaCores": 10752,
+      "architecture": "Ampere",
+      "uuid": "GPU-1d3099f9-4adb-3413-2068-559ccae291a8"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "1db8ekkyz151angvyqeb7li6uaooqfic"
+}

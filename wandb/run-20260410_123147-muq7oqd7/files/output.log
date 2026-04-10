@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/local/scratch/scratch-hd/desmond/aai-project/scripts/train_overfit.py", line 119, in <module>
+    main()
+  File "/local/scratch/scratch-hd/desmond/aai-project/scripts/train_overfit.py", line 54, in main
+    config = config.update({
+  File "/local/scratch/scratch-hd/desmond/miniconda3/envs/dreamer_mri/lib/python3.10/site-packages/elements/config.py", line 121, in update
+    old = result[key]
+KeyError: 'encoder.cnn_keys'
+Traceback (most recent call last):
+  File "/local/scratch/scratch-hd/desmond/aai-project/scripts/train_overfit.py", line 119, in <module>
+    main()
+  File "/local/scratch/scratch-hd/desmond/aai-project/scripts/train_overfit.py", line 54, in main
+    config = config.update({
+  File "/local/scratch/scratch-hd/desmond/miniconda3/envs/dreamer_mri/lib/python3.10/site-packages/elements/config.py", line 121, in update
+    old = result[key]
+KeyError: 'encoder.cnn_keys'
