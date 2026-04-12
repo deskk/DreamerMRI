@@ -1,0 +1,32 @@
+--- Firing N=1 Online Agent Memorization Loop ---
+2026-04-11 17:14:09,446 - Hydrating Core Dataset Caches statically bounding GPU speeds...
+[36mObservations[0m
+  obs_3d           Space[0m[37m([0m[34muint8[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m64[0m[37m,[0m [0m[34m64[0m[37m,[0m [0m[34m64[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m0[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34m255[0m[37m)[0m[0m
+  image            Space[0m[37m([0m[34muint8[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m64[0m[37m,[0m [0m[34m64[0m[37m,[0m [0m[34m3[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m0[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34m255[0m[37m)[0m[0m
+  reward           Space[0m[37m([0m[34mfloat32[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m-inf[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34minf[0m[37m)[0m[0m
+  is_first         Space[0m[37m([0m[34mbool[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34mFalse[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34mTrue[0m[37m)[0m[0m
+  is_last          Space[0m[37m([0m[34mbool[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34mFalse[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34mTrue[0m[37m)[0m[0m
+  is_terminal      Space[0m[37m([0m[34mbool[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34mFalse[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34mTrue[0m[37m)[0m[0m
+[36mActions[0m
+  action           Space[0m[37m([0m[34mfloat32[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m3[0m[37m,[0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m-1.0[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34m1.0[0m[37m)[0m[0m
+[36mExtras[0m
+  consec           Space[0m[37m([0m[34mint32[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m-2147483648[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34m2147483647[0m[37m)[0m[0m
+  stepid           Space[0m[37m([0m[34muint8[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m20[0m[37m,[0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m0[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34m255[0m[37m)[0m[0m
+  dyn/deter        Space[0m[37m([0m[34mfloat32[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m8192[0m[37m,[0m[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m-inf[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34minf[0m[37m)[0m[0m
+  dyn/stoch        Space[0m[37m([0m[34mfloat32[0m[37m,[0m [0m[35mshape[0m[37m=[0m[0m[37m([0m[34m32[0m[37m,[0m [0m[34m64[0m[37m)[0m[0m[37m,[0m [0m[35mlow[0m[37m=[0m[34m-inf[0m[37m,[0m [0m[35mhigh[0m[37m=[0m[34minf[0m[37m)[0m[0m
+JAX devices [0m[37m([0m[34m1[0m[37m)[0m[0m[37m:[0m [cuda[0m[37m:[0m[34m0][0m
+Policy devices: cuda:0
+Train devices:  cuda:0
+[33mInitializing parameters...[0m
+Optimizer opt has 166,349,128 params:
+    95,480,832 dyn
+    20,486,979 dec
+    12,850,431 val
+    12,595,206 pol
+    10,749,183 rew
+    10,488,833 con
+     3,697,664 enc
+[33mDone initializing![0m
+[33mCompiling 1 checkpoint groups...[0m
+Largest checkpoint group: 2 GB
+[33mCompiling train and report...[0m

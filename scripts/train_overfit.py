@@ -44,7 +44,7 @@ def main():
     print(f"[JAX DEBUG] Detected devices: {devices}")
     
     # Enable comprehensive intrinsic world model video synchronizations mapped into Weight and Biases
-    wandb.init(project="Medical-Dreamer", name="N1-Overfit-Check-A6000", sync_tensorboard=True)
+    wandb.init(entity="s26_aai_finalproject", project="Medical-Dreamer", name="N1-Overfit-Check-A6000", sync_tensorboard=True)
 
     folder = elements.Path(os.path.join(root_dir, 'external', 'dreamerv3', 'dreamerv3'))
     configs_yaml = folder / 'configs.yaml'
