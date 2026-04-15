@@ -6,3 +6,7 @@ tmp*
 *.nrrd
 models/
 offline_replay_buffer/
+wandb/
+
+modification/
+__pycache__/

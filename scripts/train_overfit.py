@@ -44,7 +44,7 @@ def main():
     print(f"[JAX DEBUG] Detected devices: {devices}")
     
     # Enable comprehensive intrinsic world model video synchronizations mapped into Weight and Biases
-    wandb.init(entity="s26_aai_finalproject", project="Medical-Dreamer", name="N1-Overfit-Check-A6000", sync_tensorboard=True)
+    wandb.init(entity="s26_aai_finalproject", project="Medical-Dreamer", name="N1-Overfit-Check-A6000")
 
     folder = elements.Path(os.path.join(root_dir, 'external', 'dreamerv3', 'dreamerv3'))
     configs_yaml = folder / 'configs.yaml'
@@ -59,7 +59,7 @@ def main():
         'batch_size': 16,
         'batch_length': 16,
         # Native telemetry routing
-        'logger.outputs': ['terminal', 'tensorboard', 'jsonl', 'wandb']
+        'logger.outputs': ['jsonl', 'wandb']
     })
 
     logdir = elements.Path(os.path.expanduser('~/logdir/overfit_medical'))
@@ -100,9 +100,6 @@ def main():
                 replica=0,
                 replicas=1,
             ))
-            # HACK: Preserve submodule integrity by strictly duck-typing instance parameters 
-            # to hide the C=64 matrix from the intrinsic W&B video generation loop.
-            agent.dec.imgkeys = [k for k in agent.dec.imgkeys if k != 'obs_3d']
             return agent
 
         embodied.run.train(

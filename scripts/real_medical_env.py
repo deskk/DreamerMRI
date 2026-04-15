@@ -149,6 +149,8 @@ class DreamerV3Wrapper:
 
     def step(self, action):
         if isinstance(action, dict):
+            if action.get('reset', False):
+                return self.reset()
             action_arr = action['action']
         else:
             action_arr = action
